@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Example</title>
+</head>
+<body>
+
+    <label for="textInput">Enter Text:</label>
+    <input type="text" id="textInput">
+
+    <script>
+        // Event listener for blur event on the input
+        document.getElementById('textInput').addEventListener('blur', function () {
+            // Get the input value
+            var inputValue = document.getElementById('textInput').value;
+
+            // Save the input value to local storage
+            localStorage.setItem('savedText', inputValue);
+        });
+
+        // Function to read from local storage when the window is loaded
+        window.onload = function () {
+            // Get the saved value from local storage
+            var savedText = localStorage.getItem('savedText');
+
+            // Display the saved value
+            if (savedText) {
+                document.getElementById('textInput').value = savedText;
+            }
+        };
+    </script>
+
+</body>
+</html>
